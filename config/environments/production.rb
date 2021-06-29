@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  routes.default_url_options = { host: 'secure-beyond-63494.herokuapp.com', protocol: 'https' }
+  routes.default_url_options = { host: 'www.secure-beyond-63494.herokuapp.com', protocol: 'https' }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
