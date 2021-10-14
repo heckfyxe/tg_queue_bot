@@ -1,9 +1,15 @@
 class TelegramWebhookController < Telegram::Bot::UpdatesController
   def start!(*)
-    respond_with :message, text: 'Hi, nice to meet you!'
+    save_context :rename!
+    respond_with :message, text: 'Вставай, самурай! Введи свое имя и фамилию'
   end
 
-  def hello!
-    respond_with :message, text: 'Hello, the Ruby World!'
+  def rename!(firstname = nil, lastname = nil, *)
+    if !firstname && !lastname
+      save_context :rename!
+      respond_with :message, text: 'Введи имя и фамилию'
+    else
+      respond_with :message, text: "Теперь ты #{firstname} #{lastname}"
+    end
   end
 end
